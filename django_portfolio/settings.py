@@ -25,7 +25,7 @@ SECRET_KEY = '3_25=tea)!vso2h3-o&3vonx10#hw28qa5kq3f2hgln&0vvwt*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['suhrabk.herokuapp.com', 'portf-sk.herokuapp.com/', 'suhrabk.com']
+ALLOWED_HOSTS = ['suhrabk.herokuapp.com', 'portf-sk.herokuapp.com', 'suhrabk.com']
 
 
 # Application definition
