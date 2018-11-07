@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suhrab Portfolio|Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins|Poppins:200|Varela+Round|Lato:300|Lato:700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'portfolio/main.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+<body>
+    <div class="site-container">
+        <header class="site-header">
+            <div class="wrap-header">
+                <div class="profile-image">
+                    <img class="profile-img" src="{% static 'portfolio/images/Untitled-4.png' %}" alt="front-end">
+                </div>
+                <div class="title-area">
+                    <h1 class="my-name">Suhrab Kurbanov</h1>
+                    <p class="description">Software Engineer / Web Developer</p>
+                    <div class="social-links">
+                        <ul>
+                            <li class="social-link-li"><a href="https://scholar.google.com/citations?user=OZvagzUAAAAJ&hl=en" target="_blank" class="fas fa-graduation-cap"></a></li>
+                            <li class="social-link-li"><a href="https://github.com/suhrabjan" target="_blank" class="fab fa-github"></a></li>
+                            <li class="social-link-li"><a href="https://plus.google.com/118107686741374691020" target="_blank" class="fab fa-google-plus"></a></li>
+                            <li class="social-link-li"><a href="https://www.linkedin.com/in/suhrab-kurbanov-95aa8046/" target="_blank" class="fab fa-linkedin"></a></li>
+                            <li class="social-link-li"><a href="https://twitter.com/sir_suhrab?lang=en" target="_blank" class="fab fa-twitter"></a></li>
+                            <li class="social-link-li"><a href="https://www.facebook.com/sir.suhrab" target="_blank" class="fab fa-facebook-square"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="download-cv">
+                    <a href="{% static 'portfolio/resume/Suhrab-Kurbanov-Resume.pdf' %}">Download CV</a>
+                </div>
+            </div>
+        </header>
+        <nav id="drawer" class="site-navigation">
+            <div class="menu_bar"><a href="#" id="menu" class="fas fa-bars"></a></div>
+            <ul id="nav-drawer">
+                <li><a href="{% url 'portfolio-home' %}"><i class="fas fa-home"></i></a></li>
+                <li><a href="{% url 'portfolio-portfolio' %}">Portfolio</a></li>
+                <li><a href="{% url 'portfolio-blog' %}">Blog</a></li>
+                <li><a href="https://scholar.google.com/citations?user=OZvagzUAAAAJ&hl=en" target="_blank">Publications</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <main class="site-mainContent">
+            <section class="main-work-entries">
+                {% block content1 %}
+                {% endblock %}
+            </section>
+            <section class="aside-work-entries">
+                {% block content2 %}
+                {% endblock %}
+            </section>
+        </main>
+    </div>
+
+    <script>
+        var menu = document.querySelector('#menu');
+        var main = document.querySelector('main');
+        var header = document.querySelector('header')
+        var navDrawer = document.querySelector('#nav-drawer');
+
+        menu.addEventListener('click', function(e) {
+          navDrawer.classList.toggle('open');
+          e.stopPropagation();
+        });
+        main.addEventListener('click', function() {
+          navDrawer.classList.remove('open');
+        });
+        header.addEventListener('click', function() {
+          navDrawer.classList.remove('open');
+        });
+    </script>
+</body>
+</html>
