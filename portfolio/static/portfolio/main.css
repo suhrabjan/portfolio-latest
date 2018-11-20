@@ -116,12 +116,12 @@ h4 {
 
 .social-links ul li {
     display: inline;
-    padding: 5px 2px 5px 2px;
+    padding-top: 5px;
 }
 
 .social-link-li a {
     font-size: 35px;
-    padding-top: 10px;
+    padding: 10px 2px 5px 2px;
 }
 
 .fa-graduation-cap {
