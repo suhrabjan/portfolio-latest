@@ -112,6 +112,7 @@ h4 {
 
 .social-links ul {
     text-align: center;
+    margin-top: 10px;
 }
 
 .social-links ul li {
@@ -120,56 +121,74 @@ h4 {
 }
 
 .social-link-li a {
-    font-size: 35px;
-    padding: 10px 2px 5px 2px;
+    display: inline-block;
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    padding-top: 6px;
+    transition: all 0.2s ease-in-out;
+    margin: 0 2px;
 }
 
 .fa-graduation-cap {
-    color: darkgrey;
+    background-color: #2B3A42;
+    color: #fff;
 }
 
 .fa-graduation-cap:hover {
-    color: black;
+    color: #2B3A42;
+    background-color: white;
 }
 
-.fa-github {
-    color: #666;
+.fa-github-alt {
+    background-color: chocolate;
+    color: #fff;
 }
 
-.fa-github:hover {
-    color: black;
+.fa-github-alt:hover {
+    color: chocolate;
+    background-color: #fff;
 }
 
-.fa-google-plus {
-    color: #936c6b;
+.fa-google-plus-g {
+    color: #fff;
+    background-color: #db4437;
 }
 
-.fa-google-plus:hover {
-    color: #BA2D17;
+.fa-google-plus-g:hover {
+    color: #db4437;
+    background-color: #fff;
 }
 
-.fa-linkedin {
-    color: #286a8d;
+.fa-linkedin-in {
+    background-color: #0073b1;
+    color: white;
 }
 
-.fa-linkedin:hover {
-    color: #0077B5;
+.fa-linkedin-in:hover {
+    color: #0073b1;
+    background-color: #fff;
 }
 
 .fa-twitter {
-    color: #7fa6c4;
+    background-color: #1da1f2;
+    color: #fff;
 }
 
 .fa-twitter:hover {
-    color: #00c3f3;
+    color: #1da1f2;
+    background-color: #fff;
 }
 
-.fa-facebook-square {
-    color: #2d609b;
+.fa-facebook-f {
+    color: #fff;
+    background-color: #4267b2;
 }
 
-.fa-facebook-square:hover {
-    color: #2d109b;
+.fa-facebook-f:hover {
+    color: #4267b2;
+    background-color: #fff;
 }
 
 .download-cv {
@@ -240,21 +259,80 @@ nav {
     width: 12%;
     text-align: center;
     cursor: pointer;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
 }
 
-#nav-drawer li:hover {
-    border-bottom: 3px solid #0099e5;
-}
 
 #nav-drawer li a {
+    display: inline-block;
     font-size: 17px;
     color: #f5f5f5;
+    width: 100%;
+    height: 100%;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+}
+
+#nav-drawer li a:hover {
+    border-bottom: 3px solid #0099e5;
 }
 
 .fa-home {
     font-size: 22px;
+}
+
+#project-container {
+    position: absolute;
+    z-index: 1;
+    left: -9999px;
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
+}
+
+#projects:hover > #project-container {
+    opacity: 1;
+    left: unset;
+}
+
+#project-container ul {
+    list-style: none;
+    background-color: #E3EAEF;
+    /*background-color: white;*/
+    text-align: left;
+
+}
+
+#project-container ul li {
+    list-style: none;
+    display: block;
+    width: 100%;
+}
+
+#project-container ul li a {
+    display: inline-block;
+    width: 250px;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 15px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    border-bottom: none;
+    color: black;
+    font-family: 'Varela Round', sans-serif;
+}
+
+#project-container ul li a:hover {
+    color: #E3EAEF;
+    background: #384551;
+    border-bottom: none;
+}
+
+h5 {
+    font-family: 'Varela Round', sans-serif;
+    color: black;
+    padding: 5px;
+    font-size: 18px;
+    border: 1px solid #eee;
+    border-bottom: none;
 }
 
 
@@ -505,6 +583,10 @@ header h3 {
         background-color: #fff;
     }
 
+    #nav-drawer {
+        justify-content: space-around;
+    }
+
     main {
         padding-left: 5%;
         padding-right: 5%;
@@ -521,5 +603,18 @@ header h3 {
 
     section {
         width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+
+    #nav-drawer li{
+        width: 100%;
+    }
+
+    #nav-drawer li a{
+        border: 1px solid;
+        border-bottom: none;
     }
 }

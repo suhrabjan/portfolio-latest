@@ -23,11 +23,11 @@
                     <div class="social-links">
                         <ul>
                             <li class="social-link-li"><a href="https://scholar.google.com/citations?user=OZvagzUAAAAJ&hl=en" target="_blank" class="fas fa-graduation-cap"></a></li>
-                            <li class="social-link-li"><a href="https://github.com/suhrabjan" target="_blank" class="fab fa-github"></a></li>
-                            <li class="social-link-li"><a href="https://plus.google.com/118107686741374691020" target="_blank" class="fab fa-google-plus"></a></li>
-                            <li class="social-link-li"><a href="https://www.linkedin.com/in/suhrab-kurbanov-95aa8046/" target="_blank" class="fab fa-linkedin"></a></li>
+                            <li class="social-link-li"><a href="https://github.com/suhrabjan" target="_blank" class="fab fa-github-alt"></a></li>
+                            <li class="social-link-li"><a href="https://plus.google.com/118107686741374691020" target="_blank" class="fab fa-google-plus-g"></a></li>
+                            <li class="social-link-li"><a href="https://www.linkedin.com/in/suhrab-kurbanov-95aa8046/" target="_blank" class="fab fa-linkedin-in"></a></li>
                             <li class="social-link-li"><a href="https://twitter.com/sir_suhrab?lang=en" target="_blank" class="fab fa-twitter"></a></li>
-                            <li class="social-link-li"><a href="https://www.facebook.com/sir.suhrab" target="_blank" class="fab fa-facebook-square"></a></li>
+                            <li class="social-link-li"><a href="https://www.facebook.com/sir.suhrab" target="_blank" class="fab fa-facebook-f"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -41,7 +41,21 @@
             <ul id="nav-drawer">
                 <li><a href="{% url 'portfolio-home' %}"><i class="fas fa-home"></i></a></li>
                 <li><a href="{% url 'portfolio-portfolio' %}">Portfolio</a></li>
-                <li><a href="{% url 'portfolio-blog' %}">Blog</a></li>
+                <li id="projects">
+                    <a href="#">Projects</a>
+                    <div id="project-container">
+                        <ul>
+                            <h5>Latest Projects</h5>
+                            <li><a href="#">Genome_Seq_Reverter</a></li>
+                            <li><a href="#">BulkImageResizer</a></li>
+                            <li><a href="#">Memory Game</a></li>
+                            <li><a href="#">Snake Game</a></li>
+                            <li><a href="#">Star Shower</a></li>
+                            <li><a href="#">Responsive Circles</a></li>
+                            <li><a href="#">Pixel Art Maker</a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li><a href="https://scholar.google.com/citations?user=OZvagzUAAAAJ&hl=en" target="_blank">Publications</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -75,5 +89,19 @@
           navDrawer.classList.remove('open');
         });
     </script>
+<!--     <script>
+        const projects = document.querySelector('#projects');
+        const projectContainer = document.querySelector('#project-container')
+        document.addEventListener('mouseover', function(e) {
+            e.preventDefault();
+            if (e.target.id === 'projects' || e.target.className === 'sync'){
+                projects.setAttribute('style', 'border-bottom: 3px solid #0099e5;');
+                projectContainer.setAttribute('style', 'display : block; transition: opacity .4s ease-in-out;')
+            } else {
+                projects.setAttribute('style', 'border-bottom: none');
+                projectContainer.style.display = 'none';
+            }
+        })
+    </script> -->
 </body>
 </html>
