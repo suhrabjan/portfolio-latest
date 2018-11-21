@@ -32,12 +32,11 @@
                     </div>
                 </div>
                 <div class="download-cv">
-                    <a href="{% static 'portfolio/resume/Suhrab-Kurbanov-Resume.pdf' %}">Download CV</a>
+                    <a href="{% static 'portfolio/resume/Suhrab-Kurbanov-Resume.pdf' %}">View Resume</a>
                 </div>
             </div>
         </header>
         <nav id="drawer" class="site-navigation">
-            <div class="menu_bar"><a href="#" id="menu" class="fas fa-bars"></a></div>
             <ul id="nav-drawer">
                 <li><a href="{% url 'portfolio-home' %}"><i class="fas fa-home"></i></a></li>
                 <li><a href="{% url 'portfolio-portfolio' %}">Portfolio</a></li>
@@ -46,13 +45,13 @@
                     <div id="project-container">
                         <ul>
                             <h5>Latest Projects</h5>
-                            <li><a href="#">Genome_Seq_Reverter</a></li>
-                            <li><a href="#">BulkImageResizer</a></li>
-                            <li><a href="#">Memory Game</a></li>
-                            <li><a href="#">Snake Game</a></li>
-                            <li><a href="#">Star Shower</a></li>
-                            <li><a href="#">Responsive Circles</a></li>
-                            <li><a href="#">Pixel Art Maker</a></li>
+                            <li><a href="https://github.com/suhrabjan/DNA_RNA_Protein_Converter_App">Genome_Seq_Reverter</a></li>
+                            <li><a href="https://github.com/suhrabjan/BulkImageResizer">BulkImageResizer</a></li>
+                            <li><a href="https://suhrabjan.github.io/memoryGame/">Memory Game</a></li>
+                            <li><a href="https://suhrabjan.github.io/snakeGameForMyKids/">Snake Game</a></li>
+                            <li><a href="https://suhrabk.com">Star Shower</a></li>
+                            <li><a href="https://suhrabjan.github.io/DynamicResponsiveCircles/" target="blank_a">Responsive Circles</a></li>
+                            <li><a href="https://suhrabjan.github.io/Pixel-Art-Maker/">Pixel Art Maker</a></li>
                         </ul>
                     </div>
                 </li>
@@ -71,37 +70,5 @@
             </section>
         </main>
     </div>
-
-    <script>
-        var menu = document.querySelector('#menu');
-        var main = document.querySelector('main');
-        var header = document.querySelector('header')
-        var navDrawer = document.querySelector('#nav-drawer');
-
-        menu.addEventListener('click', function(e) {
-          navDrawer.classList.toggle('open');
-          e.stopPropagation();
-        });
-        main.addEventListener('click', function() {
-          navDrawer.classList.remove('open');
-        });
-        header.addEventListener('click', function() {
-          navDrawer.classList.remove('open');
-        });
-    </script>
-<!--     <script>
-        const projects = document.querySelector('#projects');
-        const projectContainer = document.querySelector('#project-container')
-        document.addEventListener('mouseover', function(e) {
-            e.preventDefault();
-            if (e.target.id === 'projects' || e.target.className === 'sync'){
-                projects.setAttribute('style', 'border-bottom: 3px solid #0099e5;');
-                projectContainer.setAttribute('style', 'display : block; transition: opacity .4s ease-in-out;')
-            } else {
-                projects.setAttribute('style', 'border-bottom: none');
-                projectContainer.style.display = 'none';
-            }
-        })
-    </script> -->
 </body>
 </html>
