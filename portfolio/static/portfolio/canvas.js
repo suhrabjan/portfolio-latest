@@ -5,6 +5,13 @@ const ctx = canvas.getContext('2d');
 let c = 0;
 let d = 1;
 
+
+window.addEventListener('resize', function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+})
+
 // Object Circle
 function Star(x, y, radius, color) {
     this.x = x;
@@ -34,14 +41,14 @@ Star.prototype.update = function() {
     this.draw();
 
     // When star hits bottom or upper edge
-    if (this.y + this.radius + this.dy > innerHeight - groundHeight) {
+    if (this.y + this.radius + this.dy > canvas.height - groundHeight) {
         this.dy = -this.dy * this.friction;
         this.explode()
     } else {
         this.dy += this.gravity;
     }
     // When star hits left or right edge
-    if (this.x > innerWidth - this.radius - this.dx || this.x < this.radius) {
+    if (this.x > canvas.width - this.radius - this.dx || this.x < this.radius) {
         this.dx = -this.dx * this.friction;
         this.explode();
     }
@@ -93,13 +100,13 @@ MiniStar.prototype.update = function() {
     this.draw();
 
     // When star hits bottom or upper edge
-    if (this.y > innerHeight - this.radius - this.dy - groundHeight || this.y < this.radius) {
+    if (this.y > canvas.height - this.radius - this.dy - groundHeight || this.y < this.radius) {
         this.dy = -this.dy * this.friction;
     } else {
         this.dy += this.gravity;
     }
     // When star hits left or right edge
-    if (this.x > innerWidth - this.radius || this.x < this.radius) {
+    if (this.x > canvas.width - this.radius || this.x < this.radius) {
         this.dx = -this.dx;
     }
     this.y += this.dy;
@@ -112,12 +119,12 @@ MiniStar.prototype.update = function() {
 
 function createMountainRange(mountainAmnt, height, range, color) {
     for (let i = 0; i < mountainAmnt; ++i) {
-        mountainWidth = innerWidth / mountainAmnt;
+        mountainWidth = canvas.width / mountainAmnt;
         ctx.beginPath();
-        ctx.moveTo(i * mountainWidth, innerHeight);
-        ctx.lineTo(i * mountainWidth + mountainWidth + range, innerHeight);
-        ctx.lineTo(i * mountainWidth + mountainWidth / 2, innerHeight - height);
-        ctx.lineTo(i * mountainWidth - range, innerHeight);
+        ctx.moveTo(i * mountainWidth, canvas.height);
+        ctx.lineTo(i * mountainWidth + mountainWidth + range, canvas.height);
+        ctx.lineTo(i * mountainWidth + mountainWidth / 2, canvas.height - height);
+        ctx.lineTo(i * mountainWidth - range, canvas.height);
         ctx.fillStyle = color;
         ctx.fill();
         ctx.closePath();
@@ -125,7 +132,7 @@ function createMountainRange(mountainAmnt, height, range, color) {
 }
 
 
-const backgroundGradient = ctx.createLinearGradient(0, 0, 0, innerHeight);
+const backgroundGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
 backgroundGradient.addColorStop(0, '#171e26');
 backgroundGradient.addColorStop(1, '#3f586b');
 
@@ -142,7 +149,7 @@ function init() {
     for (let i = 0; i < 1; ++i) {
         // let radius = Math.random() * 7 + 3;
         let radius = 12;
-        let x = radius + Math.random() * (innerWidth - 2 * radius);
+        let x = radius + Math.random() * (canvas.width - 2 * radius);
         let y = -100;
         let color = '#E3EAEF';
         stars[i] = new Star(x, y, radius, color);
@@ -150,8 +157,8 @@ function init() {
 
     for (let i = 0; i < 150; ++i) {
         let radius = Math.random() * 3;
-        let x = radius + Math.random() * (innerWidth - 2 * radius);
-        let y = radius + Math.random() * (innerHeight - 2 * radius);
+        let x = radius + Math.random() * (canvas.width - 2 * radius);
+        let y = radius + Math.random() * (canvas.height - 2 * radius);
         // let color = randColors[Math.floor(Math.random() * 6)];
         backgroundStars[i] = new Star(x, y, radius, 'white');
     }
@@ -163,19 +170,19 @@ function init() {
 function animate() {
     requestAnimationFrame(animate);
     ctx.fillStyle = backgroundGradient;
-    ctx.fillRect(0, 0, innerWidth, innerHeight);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let key in backgroundStars) {
         backgroundStars[key].rotate();
-        if (backgroundStars[key].y >= innerHeight - 20) {
+        if (backgroundStars[key].y >= canvas.height - 20) {
             backgroundStars[key].y = -20;
         }
     }
-    createMountainRange(1, innerHeight - 200, 500, '#384551');
-    createMountainRange(2, innerHeight - 400, 600, '#2B3843');
-    createMountainRange(3, innerHeight - 600, 325, '#26333E');
+    createMountainRange(1, canvas.height - 200, 500, '#384551');
+    createMountainRange(2, canvas.height - 400, 600, '#2B3843');
+    createMountainRange(3, canvas.height - 600, 325, '#26333E');
     ctx.fillStyle = '#182028';
-    ctx.fillRect(0, innerHeight - groundHeight, innerWidth, groundHeight)
+    ctx.fillRect(0, canvas.height - groundHeight, canvas.width, groundHeight)
 
     for (let star in stars) {
         stars[star].update();
