@@ -1,4 +1,5 @@
 * {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
 }
@@ -9,16 +10,24 @@ html, body {
     padding: 0;
     line-height: 1.2;
 }
-canvas {
+#canvas {
     position: absolute;
     z-index: -1;
+    background: #3f586b;
 }
 
 main {
     height: 90vh;
     width: 100vw;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     text-align: center;
 
@@ -27,8 +36,6 @@ main {
 h1 {
     color: #FFF;
     font-family: 'Varela Round', sans-serif;
-    /*font-family: 'Exo', sans-serif;*/
-    /*font-variant: small-caps;*/
     font-size: 60px;
     font-weight: 300;
     margin-bottom: 25px;
@@ -37,11 +44,10 @@ h1 {
 
 h2 {
     color: #FFF;
-    /*font-family: 'Exo', sans-serif;*/
     font-family: 'Poppins', sans-serif;
-    /*font-variant: small-caps;*/
     font-size: 25px;
     font-weight: 100;
+    letter-spacing: 0.1em;
 }
 
 hr {
@@ -53,8 +59,12 @@ hr {
 }
 
 .social {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     list-style: none;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 0;
     width: 30%;
@@ -67,6 +77,8 @@ hr {
 }
 
 a {
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
@@ -75,11 +87,12 @@ a {
     font-size: 30px;
     width: 100%;
     height: 100%;
-    margin-top: 15px;
+    padding-top: 14px;
 }
 
 .social li a {
     display: inline-block;
+    text-decoration: none;
     width: 60px;
     height: 60px;
     border: 1px solid #fff;
@@ -143,7 +156,11 @@ a {
 
 .portfolio {
     list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 20%;
     margin: 50px auto 0 auto;
@@ -171,15 +188,20 @@ a {
 
 @media screen and (max-width: 1600px) {
     h1 {
-        font-size: 45px;
-        letter-spacing: 0.25em;
+        font-size: 55px;
+        /*letter-spacing: 0.25em;*/
     }
+
+    .social li {
+        margin: 0 5px;
+    }
+
 }
 
 
 @media screen and (max-width: 1050px) {
     h1 {
-        font-size: 35px;
+        font-size: 45px;
         letter-spacing: 0.25em;
     }
 
@@ -195,12 +217,13 @@ a {
 
     .fab, .fas {
         font-size: 25px;
-        margin-top: 12px;
+        padding-top: 12px;
     }
+
 }
 
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 650px) {
     h1 {
         font-size: 35px;
         letter-spacing: 5px;
@@ -218,7 +241,7 @@ a {
 
     .fab, .fas {
         font-size: 22px;
-        margin-top: 10px;
+        padding-top: 10px;
     }
 
     .portfolio li a {
@@ -256,7 +279,7 @@ a {
 
     .fab, .fas {
         font-size: 18px;
-        margin-top: 10px;
+        padding-top: 10px;
     }
 
     .portfolio li a {

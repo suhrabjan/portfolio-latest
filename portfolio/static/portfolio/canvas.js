@@ -1,9 +1,48 @@
-const canvas = document.querySelector('canvas');
+const canvas = document.getElementById('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext('2d');
-let c = 0;
-let d = 1;
+let c = 1;
+let d = 0;
+
+const offCanvas = document.createElement('canvas');
+offCanvas.width = 96;
+offCanvas.height = 30;
+const ctx2 = offCanvas.getContext('2d');
+const sxArr = [0, 32, 64];
+
+
+function offfDraw() {
+    ctx2.save();
+    ctx2.beginPath();
+    ctx2.arc(16, 15, 1, 0, Math.PI * 2, false)
+    ctx2.fillStyle = 'white';
+    ctx2.shadowColor = '#E3EAEF';
+    ctx2.shadowBlur = 14;
+    ctx2.fill();
+    ctx2.closePath();
+    ctx2.restore();
+
+    ctx2.save();
+    ctx2.beginPath();
+    ctx2.arc(48, 15, 2, 0, Math.PI * 2, false)
+    ctx2.fillStyle = 'white';
+    ctx2.shadowColor = '#E3EAEF';
+    ctx2.shadowBlur = 14;
+    ctx2.fill();
+    ctx2.closePath();
+    ctx2.restore();
+
+    ctx2.save();
+    ctx2.beginPath();
+    ctx2.arc(80, 15, 3, 0, Math.PI * 2, false)
+    ctx2.fillStyle = 'white';
+    ctx2.shadowColor = '#E3EAEF';
+    ctx2.shadowBlur = 14;
+    ctx2.fill();
+    ctx2.closePath();
+    ctx2.restore();
+}
 
 
 window.addEventListener('resize', function() {
@@ -20,9 +59,17 @@ function Star(x, y, radius, color) {
     this.color = color;
     this.dx = (Math.random() - 0.5) * 10;
     this.dy = 3;
-    this.gravity = 1.3;
+    this.gravity = 2;
     this.friction = 0.8;
     this.dy2 = 0.5;
+    this.dx2 = 0.2;
+    this.sx = sxArr[Math.floor(Math.random() * 3)];
+    this.sy = 0;
+    this.sWidth = 32;
+    this.sHeight = 30;
+    this.dWidth = 32;
+    this.dHeight = 30;
+
 }
 
 Star.prototype.draw = function() {
@@ -58,17 +105,23 @@ Star.prototype.update = function() {
 }
 
 Star.prototype.explode = function() {
-    this.radius -= 2;
-    for (let i = 0; i < 8; ++i) {
-        miniStars[c] = new MiniStar(this.x, this.y, 2);
-        c += 1;
+    this.radius -= 3;
+    for (let i = 0; i < 5; ++i) {
+        miniStars[d] = new MiniStar(this.x, this.y, 2);
+        d += 1;
     }
 }
 
 Star.prototype.rotate = function() {
-     this.draw();
-     this.y += this.dy2;
 
+     this.y += this.dy2;
+     this.x -= this.dx2;
+}
+
+Star.prototype.offDraw = function() {
+    ctx.drawImage(offCanvas, this.sx, this.sy, this.sWidth, this.sHeight, this.x, this.y, this.dWidth, this.dHeight);
+    this.y += this.dy2;
+    this.x -= this.dx2;
 }
 
 
@@ -82,6 +135,7 @@ function MiniStar(x, y, radius, color) {
     this.friction = 0.8;
     this.halfLife = 100;
     this.opacity = 1;
+
 }
 
 MiniStar.prototype.draw = function() {
@@ -147,7 +201,6 @@ function init() {
     miniStars = {};
     backgroundStars = {};
     for (let i = 0; i < 1; ++i) {
-        // let radius = Math.random() * 7 + 3;
         let radius = 12;
         let x = radius + Math.random() * (canvas.width - 2 * radius);
         let y = -100;
@@ -156,26 +209,26 @@ function init() {
     }
 
     for (let i = 0; i < 150; ++i) {
-        let radius = Math.random() * 3;
+        let radius = 4;
         let x = radius + Math.random() * (canvas.width - 2 * radius);
         let y = radius + Math.random() * (canvas.height - 2 * radius);
-        // let color = randColors[Math.floor(Math.random() * 6)];
         backgroundStars[i] = new Star(x, y, radius, 'white');
     }
-
-
 }
 
 
 function animate() {
     requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = backgroundGradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let key in backgroundStars) {
-        backgroundStars[key].rotate();
+        backgroundStars[key].offDraw();
         if (backgroundStars[key].y >= canvas.height - 20) {
             backgroundStars[key].y = -20;
+        } else if (backgroundStars[key].x <= 20) {
+            backgroundStars[key].x = canvas.width + 20;
         }
     }
     createMountainRange(1, canvas.height - 200, 500, '#384551');
@@ -200,15 +253,16 @@ function animate() {
     randomShower ++;
 
     if (randomShower % randomNum == 0) {
+        c += 1;
         const radius = 12;
         let x = Math.max(radius, Math.random() * canvas.width - radius);
         let y = -100;
         let color = '#E3EAEF';
-        stars[d] = new Star(x, y, radius, color);
-        d ++;
+        stars[c] = new Star(x, y, radius, color);
     }
 
 }
 
+offfDraw();
 init();
 animate();
