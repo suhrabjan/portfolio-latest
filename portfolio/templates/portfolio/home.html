@@ -13,7 +13,7 @@
 </head>
 <body>
     <canvas id="canvas"></canvas>
-    <main>
+    <main class="loading">
         <div id="title">
             <h1>SUHRAB KURBANOV</h1>
             <h2>Software Engineer / Olympic Medalist</h2>
@@ -34,5 +34,10 @@
         </div>
     </main>
     <script src="{% static 'portfolio/canvas.js' %}"></script>
+    <script>
+        window.addEventListener('load', function(e) {
+            document.querySelector('#title').setAttribute('style', 'opacity: unset; -moz-transition: opacity 2s ease-in-out; -webkit-transition: opacity 2s ease-in-out; transition: opacity 2s ease-in-out;')
+        });
+    </script>
 </body>
 </html>
