@@ -61,7 +61,7 @@ function Star(x, y, radius, color) {
     this.dy = 3;
     this.gravity = 2;
     this.friction = 0.8;
-    this.dy2 = 0.5;
+    this.dy2 = 0.2;
     this.dx2 = 0.2;
     this.sx = sxArr[Math.floor(Math.random() * 3)];
     this.sy = 0;
@@ -225,10 +225,10 @@ function animate() {
 
     for (let key in backgroundStars) {
         backgroundStars[key].offDraw();
-        if (backgroundStars[key].y >= canvas.height - 20) {
-            backgroundStars[key].y = -20;
-        } else if (backgroundStars[key].x <= 20) {
-            backgroundStars[key].x = canvas.width + 20;
+        if (backgroundStars[key].y >= canvas.height - 10) {
+            backgroundStars[key].y = -10;
+        } else if (backgroundStars[key].x <= -15) {
+            backgroundStars[key].x = canvas.width - 15;
         }
     }
     createMountainRange(1, canvas.height - 200, 500, '#384551');

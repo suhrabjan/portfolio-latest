@@ -239,6 +239,15 @@ hr {
 /*navigation*/
 /*navigation*/
 
+#hamburger {
+    position: absolute;
+    top: -9999px;
+    font-size: 35px;
+    color: white;
+    padding: 7px;
+    right: 15px;
+}
+
 nav {
     background: #56616B;
     min-height: 40px;
@@ -287,37 +296,39 @@ nav {
     height: 100%;
     padding-top: 0.7em;
     padding-bottom: 0.7em;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 #nav-drawer li a:hover {
     border-bottom: 3px solid #0099e5;
+    color: #E5A5A2;
 }
 
 .fa-home {
     font-size: 22px;
 }
 
-#project-container {
-    position: absolute;
-    z-index: 1;
-    left: -9999px;
-    opacity: 0;
-    -webkit-transition: opacity .4s ease-in-out;
-    -o-transition: opacity .4s ease-in-out;
-    transition: opacity .4s ease-in-out;
-}
-
-#projects:hover > #project-container {
-    opacity: 1;
-    left: unset;
-}
-
 #project-container ul {
-    list-style: none;
+    top: -9999px;
+    position: absolute;
+    height: 0;
+    transition: height 0.4s ease-in;
+    opacity: 0;
     background-color: #E3EAEF;
     text-align: left;
-
 }
+
+#projects:hover > #project-container ul{
+    top: unset;
+    display: block;
+    height: 360px;
+    overflow: hidden;
+    opacity: 1;
+}
+
+
 
 #project-container ul li {
     list-style: none;
@@ -645,6 +656,7 @@ header h3 {
     section {
         width: 100%;
     }
+
 }
 
 
@@ -657,5 +669,42 @@ header h3 {
     #nav-drawer li a{
         border: 1px solid;
         border-bottom: none;
+    }
+
+    #hamburger {
+        top: unset;
+    }
+
+    #drawer {
+        height: 50px;
+    }
+
+    #nav-drawer {
+        opacity: 0;
+        height: 0;
+        position: absolute;
+        background: #56616B;
+        width: 100%;
+        margin-top: 50px;
+        transition: height 0.4s ease-in-out;
+    }
+
+    #project-container ul {
+        top: -9999px;
+        position: fixed;
+        height: 0;
+        transition: height 0.4s ease-in;
+        opacity: 0;
+        background-color: #E3EAEF;
+        text-align: left;
+        margin-left: 38%;
+    }
+
+    #projects:hover > #project-container ul{
+        top: unset;
+        display: block;
+        height: 360px;
+        overflow: hidden;
+        opacity: 1;
     }
 }

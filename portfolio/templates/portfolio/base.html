@@ -37,13 +37,14 @@
             </div>
         </header>
         <nav id="drawer" class="site-navigation">
+            <a href="#" id="hamburger" class="fas fa-bars"></a>
             <ul id="nav-drawer">
-                <li><a href="{% url 'portfolio-home' %}"><i class="fas fa-home"></i></a></li>
-                <li><a href="{% url 'portfolio-portfolio' %}">Portfolio</a></li>
-                <li id="projects">
+                <li class="nav-drawer-li"><a href="{% url 'portfolio-home' %}"><i class="fas fa-home"></i></a></li>
+                <li class="nav-drawer-li"><a href="{% url 'portfolio-portfolio' %}">Portfolio</a></li>
+                <li id="projects" class="nav-drawer-li">
                     <a href="#">Projects</a>
                     <div id="project-container">
-                        <ul>
+                        <ul class='smartnav'>
                             <h5>Personal Recent Projects</h5>
                             <li><a href="https://github.com/suhrabjan/DNA_RNA_Protein_Converter_App" target="blank_a">Genome_Seq_Reverter</a></li>
                             <li><a href="https://github.com/suhrabjan/BulkImageResizer" target="blank_a">BulkImageResizer</a></li>
@@ -55,8 +56,8 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="https://scholar.google.com/citations?user=OZvagzUAAAAJ&hl=en" target="_blank">Publications</a></li>
-                <li><a href="#">Contact</a></li>
+                <li class="nav-drawer-li"><a href="https://scholar.google.com/citations?user=OZvagzUAAAAJ&hl=en" target="_blank">Publications</a></li>
+                <li class="nav-drawer-li"><a href="#">Contact</a></li>
             </ul>
         </nav>
         <main class="site-mainContent">
@@ -70,5 +71,40 @@
             </section>
         </main>
     </div>
+    <script>
+        const hamburger = document.querySelector('#hamburger');
+        const menu = document.querySelector('#nav-drawer');
+        const menu_li = document.querySelector('.nav-drawer-li')
+        function navbar(){
+            if (menu.style.opacity === "") {
+                menu.style.opacity = '1';
+                menu.style.top = 'unset';
+                menu.style.height = '260px';
+                menu.style.overflow = 'hidden';
+            } else if (menu.style.opacity === "1") {
+                menu.style.opacity = '';
+                menu.style.top = '-9999px';
+                menu.style.height = '0';
+            }
+        }
+        hamburger.addEventListener('click', navbar)
+        window.addEventListener('resize', function() {
+            if (window.matchMedia("(min-width: 581px)").matches) {
+                menu.style.height = '50px';
+            }
+        })
+        window.addEventListener('resize', function() {
+            if (window.matchMedia("(max-width: 580px)").matches && menu.style.opacity === '1') {
+                menu.style.height = '260px';
+            }
+        })
+    </script>
 </body>
 </html>
+        opacity: 0;
+        height: 0;
+        position: absolute;
+        background: #56616B;
+        width: 100%;
+        margin-top: 50px;
+        transition: height 0.4s ease-in-out;
