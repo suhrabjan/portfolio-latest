@@ -1,0 +1,20 @@
+{% extends 'portfolio/base.html' %}
+{% load crispy_forms_tags %}
+{% block content1 %}
+    <article class="article-main-1 article-forms">
+        <div class="content-section">
+            <header>
+                <h1 style="font-size: 40px; font-weight: 400; margin-bottom: 10px;">Contact</h1>
+            </header>
+            <form method="POST" style="font-size: 20px;">
+                {% csrf_token %}
+                <fieldset style="border: none;">
+                    {{ form|crispy }}
+                </fieldset>
+                <div>
+                    <button type="submit">SEND</button>
+                </div>
+            </form>
+        </div>
+    </article>
+{% endblock content1 %}

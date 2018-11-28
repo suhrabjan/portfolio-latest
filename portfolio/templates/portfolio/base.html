@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suhrab Portfolio|Resume</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins|Poppins:200|Varela+Round|Lato:300|Lato:700" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'portfolio/main.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -38,7 +39,7 @@
         </header>
         <nav id="drawer" class="site-navigation">
             <a href="#" id="hamburger" class="fas fa-bars"></a>
-            <ul id="nav-drawer">
+            <ul id="nav-drawer" class="untoggled">
                 <li class="nav-drawer-li"><a href="{% url 'portfolio-home' %}"><i class="fas fa-home"></i></a></li>
                 <li class="nav-drawer-li"><a href="{% url 'portfolio-portfolio' %}">Portfolio</a></li>
                 <li id="projects" class="nav-drawer-li">
@@ -57,7 +58,7 @@
                     </div>
                 </li>
                 <li class="nav-drawer-li"><a href="https://scholar.google.com/citations?user=OZvagzUAAAAJ&hl=en" target="_blank">Publications</a></li>
-                <li class="nav-drawer-li"><a href="#">Contact</a></li>
+                <li class="nav-drawer-li"><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </nav>
         <main class="site-mainContent">
@@ -72,39 +73,24 @@
         </main>
     </div>
     <script>
-        const hamburger = document.querySelector('#hamburger');
-        const menu = document.querySelector('#nav-drawer');
-        const menu_li = document.querySelector('.nav-drawer-li')
-        function navbar(){
-            if (menu.style.opacity === "") {
-                menu.style.opacity = '1';
-                menu.style.top = 'unset';
-                menu.style.height = '260px';
-                menu.style.overflow = 'hidden';
-            } else if (menu.style.opacity === "1") {
-                menu.style.opacity = '';
-                menu.style.top = '-9999px';
-                menu.style.height = '0';
-            }
-        }
-        hamburger.addEventListener('click', navbar)
+        const menu = document.getElementById('nav-drawer');
+        const hamburger = document.getElementById('hamburger')
+        let count = 0;
         window.addEventListener('resize', function() {
-            if (window.matchMedia("(min-width: 581px)").matches) {
-                menu.style.height = '50px';
+            if (window.innerWidth > 580 && menu.className === 'toggled') {
+                menu.className = 'untoggled';
+                count = 0;
             }
         })
-        window.addEventListener('resize', function() {
-            if (window.matchMedia("(max-width: 580px)").matches && menu.style.opacity === '1') {
-                menu.style.height = '260px';
+        hamburger.addEventListener('click', function() {
+            count++;
+            if (count % 2 !== 0) {
+                menu.className = 'toggled';
+            } else {
+                menu.className = 'untoggled';
             }
         })
+
     </script>
 </body>
 </html>
-        opacity: 0;
-        height: 0;
-        position: absolute;
-        background: #56616B;
-        width: 100%;
-        margin-top: 50px;
-        transition: height 0.4s ease-in-out;

@@ -266,7 +266,7 @@ nav {
     font-size: 30px;
 }
 
-#nav-drawer {
+.untoggled {
     max-width: 1400px;
     margin: auto;
     list-style: none;
@@ -390,6 +390,7 @@ main {
 /*section1*/
 /*section1*/
 /*section1*/
+
 .main-work-entries {
     -ms-flex-preferred-size: 940px;
     flex-basis: 940px;
@@ -506,6 +507,48 @@ header h3 {
 }
 
 
+/*Forms*/
+/*Forms*/
+/*Forms*/
+.form-control {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #ddd;
+    font-size: 18px;
+    color: #333;
+    line-height: normal;
+}
+
+.asteriskField {
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 28px;
+    font-family: 'Lato',sans-serif;
+    font-size: 19px;
+}
+
+button {
+    font-family: 'Lato',sans-serif;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    background: #333;
+    padding: 16px 24px;
+    transition: all 0.1s ease-in-out;
+    border: none;
+}
+
+button:hover {
+    background: #e5554e;
+}
+
+.article-forms {
+    padding: 50px 60px;
+    }
+
+
 /*media quieries*/
 /*media quieries*/
 /*media quieries*/
@@ -516,7 +559,7 @@ header h3 {
         max-width: 1200px;
     }
 
-    #nav-drawer {
+    .untoggled {
         max-width: 1200px;
     }
 
@@ -540,7 +583,7 @@ header h3 {
         max-width: 960px;
     }
 
-    #nav-drawer {
+    .untoggled {
         max-width: 960px;
     }
 
@@ -601,7 +644,7 @@ header h3 {
         margin: 30px 0 20px 0;
     }
 
-    #nav-drawer {
+    .untoggled {
         max-width: 800px;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -634,7 +677,7 @@ header h3 {
         background-color: #fff;
     }
 
-    #nav-drawer {
+    .untoggled {
         -ms-flex-pack: distribute;
         justify-content: space-around;
     }
@@ -647,6 +690,10 @@ header h3 {
     article {
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .article-forms {
+        padding: 50px 0;
     }
 
     .programming-skills ul {
@@ -679,32 +726,43 @@ header h3 {
         height: 50px;
     }
 
-    #nav-drawer {
+    .untoggled {
         opacity: 0;
+        top: -9999px;
         height: 0;
         position: absolute;
         background: #56616B;
         width: 100%;
         margin-top: 50px;
-        transition: height 0.4s ease-in-out;
+        overflow: hidden;
+    }
+
+    .toggled {
+        opacity: 1;
+        top: unset;
+        height: 260px;
+        position: absolute;
+        background: #56616B;
+        width: 100%;
+        margin-top: 50px;
+        overflow: hidden;
+        transition: height 0.5s ease-in-out;
     }
 
     #project-container ul {
         top: -9999px;
-        position: fixed;
         height: 0;
         transition: height 0.4s ease-in;
         opacity: 0;
         background-color: #E3EAEF;
         text-align: left;
-        margin-left: 38%;
     }
 
     #projects:hover > #project-container ul{
-        top: unset;
+        top: 0;
         display: block;
-        height: 360px;
-        overflow: hidden;
+        height: 260px;
+        overflow-y: scroll;
         opacity: 1;
     }
 }
