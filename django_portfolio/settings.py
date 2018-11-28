@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '3_25=tea)!vso2h3-o&3vonx10#hw28qa5kq3f2hgln&0vvwt*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['suhrabk.herokuapp.com', 'portf-sk.herokuapp.com', 'suhrabk.com', 'www.suhrabk.com', '127.0.0.1', 'localhost:8000']
 
@@ -143,13 +143,11 @@ STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
-
+EMAIL_HOST_USER = 'sir.suhrab@gmail.com'
+EMAIL_HOST_PASSWORD = 'eucusdnlyjukdftf'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/

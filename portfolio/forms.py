@@ -16,4 +16,4 @@ class ContactForm(forms.Form):
         content = self.cleaned_data['content']
         content = f'Name: {name}. Email: {email}. \nSubject:{subject}\nContent:\n{content}'
         subject = 'Inquiry From Portfolio!'
-        send_mail(subject, content, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER])
+        send_mail(subject, content, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], fail_silently=False)
