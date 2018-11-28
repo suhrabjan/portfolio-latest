@@ -20,7 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3_25=tea)!vso2h3-o&3vonx10#hw28qa5kq3f2hgln&0vvwt*'
+# SECRET_KEY = '3_25=tea)!vso2h3-o&3vonx10#hw28qa5kq3f2hgln&0vvwt*'
+SECRET_KEY = os.environ.get('SECRET_KEY_PORTFOLIO')
+print(SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -147,7 +149,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
-
+print(EMAIL_HOST_PASSWORD)
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
