@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['suhrabk.herokuapp.com', 'portf-sk.herokuapp.com', 'suhrabk.com
 # Application definition
 
 INSTALLED_APPS = [
-    'blog.apps.BlogConfig',
     'portfolio.apps.PortfolioConfig',
     'crispy_forms',
     'django.contrib.admin',
@@ -135,7 +134,7 @@ DATABASES['default'].update(db_from_env)
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+print(STATIC_ROOT)
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
 

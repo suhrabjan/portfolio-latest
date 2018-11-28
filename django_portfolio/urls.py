@@ -22,6 +22,5 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('portfolio.urls')),
-    path('', include('blog.urls')),
     path('contact/', portfolio_views.ContactView.as_view(template_name='portfolio/contact.html'), name='contact'),
 ]
