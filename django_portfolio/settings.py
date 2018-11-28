@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY_PORTFOLIO')
+SECRET_KEY = '3_25=tea)!vso2h3-o&3vonx10#hw28qa5kq3f2hgln&0vvwt*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['suhrabk.herokuapp.com', 'portf-sk.herokuapp.com', 'suhrabk.com', 'www.suhrabk.com', '127.0.0.1', 'localhost:8000']
 
@@ -134,7 +134,7 @@ DATABASES['default'].update(db_from_env)
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-print(STATIC_ROOT)
+
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
 
