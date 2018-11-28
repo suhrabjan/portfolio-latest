@@ -2,6 +2,13 @@
 {% load crispy_forms_tags %}
 {% block content1 %}
     <article class="article-main-1 article-forms">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         <div class="content-section">
             <header>
                 <h1 style="font-size: 40px; font-weight: 400; margin-bottom: 10px;">Contact</h1>

@@ -546,8 +546,15 @@ button:hover {
 
 .article-forms {
     padding: 50px 60px;
-    }
+}
 
+.success {
+    position: relative;
+    bottom: 50px;
+    background: #4BB543;
+    color: #fff;
+    padding: 0 5px;
+}
 
 /*media quieries*/
 /*media quieries*/
