@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="{% static 'portfolio/main.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <script>
-    document.addEventListener("touchstart", function() {},false);
+        document.addEventListener("touchstart", function() {},false);
+        document.addEventListener("touchmove", function() {},false);
     </script>
 </head>
 <body>
@@ -36,7 +37,7 @@
                     </div>
                 </div>
                 <div class="download-cv">
-                    <a onclick="" href="{% static 'portfolio/resume/resume.pdf' %}">View Resume</a>
+                    <a href="{% static 'portfolio/resume/resume.pdf' %}">View Resume</a>
                 </div>
             </div>
         </header>
@@ -45,7 +46,7 @@
             <ul id="nav-drawer" class="untoggled">
                 <li class="nav-drawer-li"><a href="{% url 'portfolio-home' %}"><i class="fas fa-home"></i></a></li>
                 <li class="nav-drawer-li"><a href="{% url 'portfolio-portfolio' %}">Portfolio</a></li>
-                <li onclick="" id="projects" class="nav-drawer-li">
+                <li id="projects" class="nav-drawer-li">
                     <a style="pointer-events: none;">Projects</a>
                     <div id="project-container">
                         <ul class='smartnav'>
