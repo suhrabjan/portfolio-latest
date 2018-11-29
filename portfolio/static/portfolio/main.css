@@ -19,6 +19,15 @@ body {
     line-height: 1.625;
 }
 
+div, main, ul {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 a {
     cursor: pointer;
     text-decoration: none;
