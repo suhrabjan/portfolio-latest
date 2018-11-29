@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins|Poppins:200|Varela+Round|Lato:300|Lato:700" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'portfolio/main.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script>
+    document.addEventListener("touchstart", function() {},false);
+    </script>
 </head>
 <body>
     <div class="site-container">
@@ -33,7 +36,7 @@
                     </div>
                 </div>
                 <div class="download-cv">
-                    <a href="{% static 'portfolio/resume/resume.pdf' %}">View Resume</a>
+                    <a onclick="" href="{% static 'portfolio/resume/resume.pdf' %}">View Resume</a>
                 </div>
             </div>
         </header>
@@ -41,8 +44,8 @@
             <div id="hamburger" class="fas fa-bars" style="cursor: pointer;"></div>
             <ul id="nav-drawer" class="untoggled">
                 <li class="nav-drawer-li"><a href="{% url 'portfolio-home' %}"><i class="fas fa-home"></i></a></li>
-                <li class="nav-drawer-li" onclick=""><a href="{% url 'portfolio-portfolio' %}">Portfolio</a></li>
-                <li id="projects" class="nav-drawer-li">
+                <li class="nav-drawer-li"><a href="{% url 'portfolio-portfolio' %}">Portfolio</a></li>
+                <li onclick="" id="projects" class="nav-drawer-li">
                     <a style="pointer-events: none;">Projects</a>
                     <div id="project-container">
                         <ul class='smartnav'>
