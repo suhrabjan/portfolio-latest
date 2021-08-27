@@ -4,6 +4,5 @@
 # Database
 *.sqlite3
 
-.DS_Store
-
-.env
+.DS_Store.env 
+.env 
